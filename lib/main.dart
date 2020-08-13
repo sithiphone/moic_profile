@@ -23,7 +23,7 @@ class TomProfile extends StatelessWidget{
             Center(
               child: CircleAvatar(
                 backgroundImage: AssetImage('assets/tomcat.jpg'),
-                radius: 60.0,
+                radius: 70.0,
               ),
             ),
             Text('Name', style: TextStyle(color: Colors.grey, letterSpacing: 2.0),),
