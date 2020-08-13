@@ -4,7 +4,13 @@ void main() => runApp(MaterialApp(
   home: TomProfile(),
 ));
 
-class TomProfile extends StatelessWidget{
+class TomProfile extends StatefulWidget{
+  @override
+  _TomProfileState createState() => _TomProfileState();
+}
+
+class _TomProfileState extends State<TomProfile> {
+  int tomLevel = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +43,7 @@ class TomProfile extends StatelessWidget{
             SizedBox(height: 20.0,),
             Text('CURRENT LEVEL', style: TextStyle(color: Colors.grey, letterSpacing: 2.0),),
             SizedBox(height: 10.0,),
-            Text('8', style: TextStyle(
+            Text('$tomLevel', style: TextStyle(
                 color: Colors.amberAccent[200],
                 letterSpacing: 2.0,
                 fontSize: 28.0,
@@ -53,6 +59,16 @@ class TomProfile extends StatelessWidget{
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add_circle, size: 50.0, color: Colors.deepOrange,),
+        backgroundColor: Colors.amberAccent[200],
+        onPressed: (){
+          setState(() {
+//            tomLevel = tomLevel + 1;
+            tomLevel++;
+          });
+        },
       ),
     );
   }
