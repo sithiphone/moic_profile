@@ -1,20 +1,18 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 class ChooseLocation extends StatefulWidget {
   @override
   _ChooseLocationState createState() => _ChooseLocationState();
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
-  int counter = 1;
 
-  void getData() async{
-    await Future.delayed(Duration(seconds: 5), (){
-      print("Sithiphone");
-    });
-
-    Future.delayed(Duration(seconds: 3), (){
-      print("statement");
-    });
+  void getData() async {
+    Response response = await get("https://jsonplaceholder.typicode.com/todos/1");
+    Map data = jsonDecode(response.body);
+    print(data['title']);
   }
 
   @override
@@ -36,10 +34,9 @@ class _ChooseLocationState extends State<ChooseLocation> {
           child: RaisedButton(
             onPressed: (){
               setState(() {
-                counter++;
               });
             },
-            child: Text("Counter: $counter"),
+            child: Text("Counter: "),
           )
       ),),
     );
